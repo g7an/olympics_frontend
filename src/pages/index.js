@@ -11,10 +11,13 @@ import { TrafficByDevice } from '../components/dashboard/traffic-by-device';
 import { DashboardLayout } from '../components/dashboard-layout';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { resetServerContext } from "react-beautiful-dnd"
 
 const Dashboard = () => {
+  resetServerContext()
 
-  const [data, setData] = useState({});
+  const [dataBasic, setDataBasic] = useState({});
+  const [dataRatio, setDataRatio] = useState({});
 
   useEffect(() => {
     handleData();
@@ -22,12 +25,13 @@ const Dashboard = () => {
 
   async function handleData() {
     try {      
-        const response = await axios.get('http://localhost:8000/basic_info');
-        setData(response.data);
-        console.log(get(response, ['data', `${get(symbol, ['fromSymbol'])}_${get(symbol, ['toSymbol'])}`]))
+        const basicInfo = await axios.get('http://localhost:8000/basic_info');
+        const ratio = await axios.get('http://localhost:8000/male_female');
+        setDataBasic(basicInfo.data);
+        setDataRatio(ratio.data);
         
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
   }
 
@@ -58,7 +62,7 @@ const Dashboard = () => {
               xl={3}
               xs={12}
             >
-              <CountryCount countryCount={data['country_count']} />
+              <CountryCount countrycount={dataBasic['country_count']} />
             </Grid>
             <Grid
               item
@@ -67,7 +71,7 @@ const Dashboard = () => {
               sm={6}
               xs={12}
             >
-              <AthletesCount athleteCount={data['athlete_count']} />
+              <AthletesCount athletecount={dataBasic['athlete_count']} />
             </Grid>
             <Grid
               item
@@ -76,7 +80,7 @@ const Dashboard = () => {
               sm={6}
               xs={12}
             >
-              <EventCount eventCount={data['event_count']}/>
+              <EventCount eventcount={dataBasic['event_count']}/>
             </Grid>
             <Grid
               item
@@ -85,7 +89,7 @@ const Dashboard = () => {
               sm={6}
               xs={12}
             >
-              <GameCount gameCount={data['game_count']} sx={{ height: '100%' }} />
+              <GameCount gamecount={dataBasic['game_count']} sx={{ height: '100%' }} />
             </Grid>
             <Grid
               item
@@ -103,7 +107,7 @@ const Dashboard = () => {
               xl={3}
               xs={12}
             >
-              <TrafficByDevice sx={{ height: '100%' }} />
+              <TrafficByDevice data={dataRatio} sx={{ height: '100%' }} />
             </Grid>
             <Grid
               item

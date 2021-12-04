@@ -22,7 +22,7 @@ export const AthletesCount = (props) => (
             color="textPrimary"
             variant="h4"
           >
-            {props.athleteCount}
+            {props.athletecount}
           </Typography>
         </Grid>
         <Grid item>

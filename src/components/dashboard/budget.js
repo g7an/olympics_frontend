@@ -1,7 +1,7 @@
 import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import MoneyIcon from '@mui/icons-material/Money';
 import { propsToClassKey } from '@mui/styles';
+import PublicIcon from '@mui/icons-material/Public';
 
 export const CountryCount = (props) => (
   <Card
@@ -26,7 +26,7 @@ export const CountryCount = (props) => (
             color="textPrimary"
             variant="h4"
           >
-            {props.countryCount}
+            {props.countrycount}
           </Typography>
         </Grid>
         <Grid item>
@@ -37,7 +37,7 @@ export const CountryCount = (props) => (
               width: 56
             }}
           >
-            <MoneyIcon />
+            <PublicIcon />
           </Avatar>
         </Grid>
       </Grid>

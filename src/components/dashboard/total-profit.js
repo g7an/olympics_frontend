@@ -1,5 +1,6 @@
 import { Avatar, Card, CardContent, Grid, Typography } from '@mui/material';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import SportsIcon from '@mui/icons-material/Sports';
 
 export const GameCount = (props) => (
   <Card {...props}>
@@ -21,7 +22,7 @@ export const GameCount = (props) => (
             color="textPrimary"
             variant="h4"
           >
-            {props.gameCount}
+            {props.gamecount}
           </Typography>
         </Grid>
         <Grid item>
@@ -32,7 +33,7 @@ export const GameCount = (props) => (
               width: 56
             }}
           >
-            <AttachMoneyIcon />
+            <SportsIcon />
           </Avatar>
         </Grid>
       </Grid>

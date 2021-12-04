@@ -1,5 +1,6 @@
 import { Avatar, Box, Card, CardContent, Grid, LinearProgress, Typography } from '@mui/material';
 import InsertChartIcon from '@mui/icons-material/InsertChartOutlined';
+import SportsHandballIcon from '@mui/icons-material/SportsHandball';
 
 export const EventCount = (props) => (
   <Card
@@ -24,7 +25,7 @@ export const EventCount = (props) => (
             color="textPrimary"
             variant="h4"
           >
-            {props.eventCount}
+            {props.eventcount}
           </Typography>
         </Grid>
         <Grid item>
@@ -35,7 +36,7 @@ export const EventCount = (props) => (
               width: 56
             }}
           >
-            <InsertChartIcon />
+            <SportsHandballIcon />
           </Avatar>
         </Grid>
       </Grid>
