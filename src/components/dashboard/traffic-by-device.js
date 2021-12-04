@@ -45,13 +45,13 @@ export const TrafficByDevice = (props) => {
   const devices = [
     {
       title: 'Male',
-      value: props.data['male_count'],
+      value: props.data['male_ratio'],
       icon: MaleIcon,
       color: '#3F51B5'
     },
     {
       title: 'Female',
-      value: props.data['female_count'],
+      value: props.data['female_ratio'],
       icon: FemaleIcon,
       color: '#E53935'
     }

@@ -18,6 +18,7 @@ const Dashboard = () => {
 
   const [dataBasic, setDataBasic] = useState({});
   const [dataRatio, setDataRatio] = useState({});
+  const [dataEventMedal, setDataEventMedal] = useState({});
 
   useEffect(() => {
     handleData();
@@ -27,8 +28,10 @@ const Dashboard = () => {
     try {      
         const basicInfo = await axios.get('http://localhost:8000/basic_info');
         const ratio = await axios.get('http://localhost:8000/male_female');
+        const table = await axios.get('http://localhost:8000/event_medal')
         setDataBasic(basicInfo.data);
         setDataRatio(ratio.data);
+        setDataEventMedal(table.data);
         
       } catch (error) {
         console.error(error);
@@ -98,7 +101,7 @@ const Dashboard = () => {
               xl={9}
               xs={12}
             >
-              <Sales />
+              <Sales data={dataEventMedal}/>
             </Grid>
             <Grid
               item

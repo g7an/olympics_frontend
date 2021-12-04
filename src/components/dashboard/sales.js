@@ -2,6 +2,7 @@ import { Bar } from 'react-chartjs-2';
 import { Box, Button, Card, CardContent, CardHeader, Divider, useTheme } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { BasicTable } from './basic-table';
 
 export const Sales = (props) => {
   const theme = useTheme();
@@ -92,23 +93,24 @@ export const Sales = (props) => {
             Last 7 days
           </Button>
         )}
-        title="Latest Sales"
+        title="Medals by Events"
       />
       <Divider />
-      <CardContent>
+      {/* <CardContent> */}
         <Box
           sx={{
-            height: 400,
+            height: 500,
             position: 'relative'
           }}
         >
-          <Bar
+          <BasicTable cellData={props.data} />
+          {/* <Bar
             data={data}
             options={options}
-          />
+          /> */}
         </Box>
-      </CardContent>
-      <Divider />
+      {/* </CardContent> */}
+      {/* <Divider /> */}
       <Box
         sx={{
           display: 'flex',
@@ -116,13 +118,13 @@ export const Sales = (props) => {
           p: 2
         }}
       >
-        <Button
+        {/* <Button
           color="primary"
           endIcon={<ArrowRightIcon fontSize="small" />}
           size="small"
         >
           Overview
-        </Button>
+        </Button> */}
       </Box>
     </Card>
   );
