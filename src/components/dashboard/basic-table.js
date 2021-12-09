@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import {
+  DataGrid,
+  GridToolbarContainer,
+  GridToolbarExport,
+  gridClasses,
+} from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
 import { propsToClassKey } from '@mui/styles';
 import { RowingSharp } from '@material-ui/icons';
@@ -36,7 +41,13 @@ function createData(id, Event_name, Region_name, medal_count) {
   return { id, Event_name, Region_name, medal_count };
 }
 
-
+function CustomToolbar() {
+  return (
+    <GridToolbarContainer className={gridClasses.toolbarContainer} >
+      <GridToolbarExport csvOptions={{ allColumns: true }} />
+    </GridToolbarContainer>
+  );
+}
 
 export const BasicTable = (props) => {
   const rows = [];
@@ -52,6 +63,9 @@ export const BasicTable = (props) => {
         // pageSize={10}
         rowsPerPageOptions={[5, 10, 100]}
         // checkboxSelection
+        components={{
+          Toolbar: CustomToolbar,
+        }}
       />
     </div>
   );

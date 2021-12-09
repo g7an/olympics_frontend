@@ -11,14 +11,30 @@ import { TrafficByDevice } from '../components/dashboard/traffic-by-device';
 import { DashboardLayout } from '../components/dashboard-layout';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { resetServerContext } from "react-beautiful-dnd"
+import { resetServerContext } from "react-beautiful-dnd";
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  parent: {
+    position: "relative",
+    width: 200,
+    height: 200,
+    backgroundColor: "red",
+    zIndex: 0,
+  },
+  backdrop: {
+    position: "absolute"
+  }
+});
 
 const Dashboard = () => {
-  resetServerContext()
+  const classes = useStyles();
 
-  const [dataBasic, setDataBasic] = useState({});
-  const [dataRatio, setDataRatio] = useState({});
-  const [dataEventMedal, setDataEventMedal] = useState({});
+  const [dataBasic, setDataBasic] = useState();
+  const [dataRatio, setDataRatio] = useState();
+  const [dataEventMedal, setDataEventMedal] = useState();
 
   useEffect(() => {
     handleData();
@@ -40,100 +56,111 @@ const Dashboard = () => {
 
 
   return (
-    <>
+      <>
       <Head>
-        <title>
-          Dashboard | Olympics
-        </title>
-      </Head>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          py: 8
-        }}
-      >
-        <Container maxWidth={false}>
-          <Grid
-            container
-            spacing={3}
-          >
+          <title>
+            Dashboard | Olympics
+          </title>
+        </Head>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            py: 8
+          }}
+        >
+          {
+            dataBasic && dataRatio && dataEventMedal ? <Container maxWidth={false}>
             <Grid
-              item
-              lg={3}
-              sm={6}
-              xl={3}
-              xs={12}
+              container
+              spacing={3}
             >
-              <CountryCount countrycount={dataBasic['country_count']} />
+              <Grid
+                item
+                lg={3}
+                sm={6}
+                xl={3}
+                xs={12}
+              >
+                <CountryCount countrycount={dataBasic['country_count']} />
+              </Grid>
+              <Grid
+                item
+                xl={3}
+                lg={3}
+                sm={6}
+                xs={12}
+              >
+                <AthletesCount athletecount={dataBasic['athlete_count']} />
+              </Grid>
+              <Grid
+                item
+                xl={3}
+                lg={3}
+                sm={6}
+                xs={12}
+              >
+                <EventCount eventcount={dataBasic['event_count']}/>
+              </Grid>
+              <Grid
+                item
+                xl={3}
+                lg={3}
+                sm={6}
+                xs={12}
+              >
+                <GameCount gamecount={dataBasic['game_count']} sx={{ height: '100%' }} />
+              </Grid>
+              <Grid
+                item
+                lg={6}
+                md={9}
+                xl={6}
+                xs={12}
+              >
+                <Sales data={dataEventMedal}/>
+              </Grid>
+              <Grid
+                item
+                lg={6}
+                md={9}
+                xl={6}
+                xs={12}
+              >
+                <TrafficByDevice data={dataRatio} sx={{ height: '100%' }} />
+              </Grid>
+              <Grid
+                item
+                lg={4}
+                md={6}
+                xl={3}
+                xs={12}
+              >
+                <LatestProducts sx={{ height: '100%' }} />
+              </Grid>
+              <Grid
+                item
+                lg={8}
+                md={12}
+                xl={9}
+                xs={12}
+              >
+                <LatestOrders />
+              </Grid>
             </Grid>
-            <Grid
-              item
-              xl={3}
-              lg={3}
-              sm={6}
-              xs={12}
-            >
-              <AthletesCount athletecount={dataBasic['athlete_count']} />
-            </Grid>
-            <Grid
-              item
-              xl={3}
-              lg={3}
-              sm={6}
-              xs={12}
-            >
-              <EventCount eventcount={dataBasic['event_count']}/>
-            </Grid>
-            <Grid
-              item
-              xl={3}
-              lg={3}
-              sm={6}
-              xs={12}
-            >
-              <GameCount gamecount={dataBasic['game_count']} sx={{ height: '100%' }} />
-            </Grid>
-            <Grid
-              item
-              lg={8}
-              md={12}
-              xl={9}
-              xs={12}
-            >
-              <Sales data={dataEventMedal}/>
-            </Grid>
-            <Grid
-              item
-              lg={4}
-              md={6}
-              xl={3}
-              xs={12}
-            >
-              <TrafficByDevice data={dataRatio} sx={{ height: '100%' }} />
-            </Grid>
-            <Grid
-              item
-              lg={4}
-              md={6}
-              xl={3}
-              xs={12}
-            >
-              <LatestProducts sx={{ height: '100%' }} />
-            </Grid>
-            <Grid
-              item
-              lg={8}
-              md={12}
-              xl={9}
-              xs={12}
-            >
-              <LatestOrders />
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-    </>
+          </Container>: 
+        <div>
+          <Backdrop className={classes.backdrop} open={true}>
+            <CircularProgress color="inherit" />
+          </Backdrop>
+        </div>
+        }
+          
+        </Box>
+        </>
+    
+      
+   
   );
 }
 
