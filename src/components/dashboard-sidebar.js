@@ -23,40 +23,40 @@ const items = [
     title: 'Dashboard'
   },
   {
-    href: '/customers',
+    href: '/nlp',
     icon: (<UsersIcon fontSize="small" />),
-    title: 'Customers'
+    title: 'Q&A'
   },
-  {
-    href: '/products',
-    icon: (<ShoppingBagIcon fontSize="small" />),
-    title: 'Products'
-  },
-  {
-    href: '/account',
-    icon: (<UserIcon fontSize="small" />),
-    title: 'Account'
-  },
-  {
-    href: '/settings',
-    icon: (<CogIcon fontSize="small" />),
-    title: 'Settings'
-  },
-  {
-    href: '/login',
-    icon: (<LockIcon fontSize="small" />),
-    title: 'Login'
-  },
-  {
-    href: '/register',
-    icon: (<UserAddIcon fontSize="small" />),
-    title: 'Register'
-  },
-  {
-    href: '/404',
-    icon: (<XCircleIcon fontSize="small" />),
-    title: 'Error'
-  }
+  // {
+  //   href: '/products',
+  //   icon: (<ShoppingBagIcon fontSize="small" />),
+  //   title: 'Products'
+  // },
+  // {
+  //   href: '/account',
+  //   icon: (<UserIcon fontSize="small" />),
+  //   title: 'Account'
+  // },
+  // {
+  //   href: '/settings',
+  //   icon: (<CogIcon fontSize="small" />),
+  //   title: 'Settings'
+  // },
+  // {
+  //   href: '/login',
+  //   icon: (<LockIcon fontSize="small" />),
+  //   title: 'Login'
+  // },
+  // {
+  //   href: '/register',
+  //   icon: (<UserAddIcon fontSize="small" />),
+  //   title: 'Register'
+  // },
+  // {
+  //   href: '/404',
+  //   icon: (<XCircleIcon fontSize="small" />),
+  //   title: 'Error'
+  // }
 ];
 
 export const DashboardSidebar = (props) => {
@@ -196,7 +196,7 @@ export const DashboardSidebar = (props) => {
               src="/static/images/sidebar_pro.png"
             />
           </Box>
-          <NextLink
+          {/* <NextLink
             href="https://material-kit-pro-react.devias.io/"
             passHref
           >
@@ -209,8 +209,8 @@ export const DashboardSidebar = (props) => {
               variant="contained"
             >
               Pro Live Preview
-            </Button>
-          </NextLink>
+            </Button> */}
+          {/* </NextLink> */}
         </Box>
       </Box>
     </>
