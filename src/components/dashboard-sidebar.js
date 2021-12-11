@@ -124,24 +124,24 @@ export const DashboardSidebar = (props) => {
                   color="inherit"
                   variant="subtitle1"
                 >
-                  Acme Inc
+                  Olympic DB System
                 </Typography>
-                <Typography
+                {/* <Typography
                   color="neutral.400"
                   variant="body2"
                 >
-                  Your tier
+                  Your are at
                   {' '}
-                  : Premium
-                </Typography>
+                  : Dashboard
+                </Typography> */}
               </div>
-              <SelectorIcon
+              {/* <SelectorIcon
                 sx={{
                   color: 'neutral.500',
                   width: 14,
                   height: 14
                 }}
-              />
+              /> */}
             </Box>
           </Box>
         </div>
@@ -168,34 +168,6 @@ export const DashboardSidebar = (props) => {
             py: 3
           }}
         >
-          <Typography
-            color="neutral.100"
-            variant="subtitle2"
-          >
-            Need more features?
-          </Typography>
-          <Typography
-            color="neutral.500"
-            variant="body2"
-          >
-            Check out our Pro solution template.
-          </Typography>
-          <Box
-            sx={{
-              display: 'flex',
-              mt: 2,
-              mx: 'auto',
-              width: '160px',
-              '& img': {
-                width: '100%'
-              }
-            }}
-          >
-            <img
-              alt="Go to pro"
-              src="/static/images/sidebar_pro.png"
-            />
-          </Box>
           {/* <NextLink
             href="https://material-kit-pro-react.devias.io/"
             passHref

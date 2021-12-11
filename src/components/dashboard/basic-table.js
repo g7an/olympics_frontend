@@ -32,10 +32,6 @@ const columns = [
   // },
 ];
 
-const rows = [
-  { id: 1, Event_name: "Team", Region_name: "United States", medal_count: 9810 }
-];
-
 
 function createData(id, Event_name, Region_name, medal_count) {
   return { id, Event_name, Region_name, medal_count };
