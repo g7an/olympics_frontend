@@ -35,6 +35,7 @@ const Dashboard = () => {
   const [dataBasic, setDataBasic] = useState();
   const [dataRatio, setDataRatio] = useState();
   const [dataEventMedal, setDataEventMedal] = useState();
+  const [dataGoldMedals, setDataGoldMedals] = useState();
 
   useEffect(() => {
     handleData();
@@ -42,13 +43,17 @@ const Dashboard = () => {
 
   async function handleData() {
     try {      
+
         const basicInfo = await axios.get('http://localhost:8000/basic_info');
         const ratio = await axios.get('http://localhost:8000/male_female');
-        const table = await axios.get('http://localhost:8000/event_medal')
+        const table = await axios.get('http://localhost:8000/event_medal');
+        const goldMedals = await axios.get('http://localhost:8000/gold_country');
+
         setDataBasic(basicInfo.data);
         setDataRatio(ratio.data);
         setDataEventMedal(table.data);
-        
+        setDataGoldMedals(goldMedals.data);
+
       } catch (error) {
         console.error(error);
       }
@@ -70,7 +75,7 @@ const Dashboard = () => {
           }}
         >
           {
-            dataBasic && dataRatio && dataEventMedal ? <Container maxWidth={false}>
+            dataBasic && dataRatio && dataEventMedal && dataGoldMedals ? <Container maxWidth={false}>
             <Grid
               container
               spacing={3}
@@ -135,6 +140,10 @@ const Dashboard = () => {
                 md={6}
                 xl={3}
                 xs={12}
+                // lg={6}
+                // md={9}
+                // xl={6}
+                // xs={12}
               >
                 <LatestProducts sx={{ height: '100%' }} />
               </Grid>
@@ -145,7 +154,7 @@ const Dashboard = () => {
                 xl={9}
                 xs={12}
               >
-                <LatestOrders />
+                <LatestOrders data={dataGoldMedals} />
               </Grid>
             </Grid>
           </Container>: 
