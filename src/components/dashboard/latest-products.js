@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { LeaderBoard } from './leader-board';
 
 const products = [
   {
@@ -55,7 +56,8 @@ export const LatestProducts = (props) => (
       title="Latest Products"
     />
     <Divider />
-    <List>
+    <LeaderBoard cellData={props.data}  />
+    {/* <List>
       {products.map((product, i) => (
         <ListItem
           divider={i < products.length - 1}
@@ -83,23 +85,7 @@ export const LatestProducts = (props) => (
           </IconButton>
         </ListItem>
       ))}
-    </List>
-    <Divider />
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'flex-end',
-        p: 2
-      }}
-    >
-      <Button
-        color="primary"
-        endIcon={<ArrowRightIcon />}
-        size="small"
-        variant="text"
-      >
-        View all
-      </Button>
-    </Box>
+    </List> */}
+    {/* <Divider /> */}
   </Card>
 );

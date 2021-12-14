@@ -11,13 +11,14 @@ import { RowingSharp } from '@material-ui/icons';
 
 const columns = [
   // { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'regionName', headerName: 'Region Name', width: 200 },
-  { field: 'goldMedals', headerName: 'Gold Medals', type: 'number', width: 200 },
+  { field: 'name', headerName: 'Name', width: 200 },
+  { field: 'gender', headerName: 'Gender', width: 100  },
+  { field: 'medalCount', headerName: 'Gold Medals', type: 'number', width: 150 },
 ];
 
 
-function createData(id, goldMedals, regionName) {
-  return { id, goldMedals, regionName };
+function createData(id, name, medalCount, gender) {
+  return { id, name, medalCount, gender };
 }
 
 function CustomToolbar() {
@@ -31,15 +32,15 @@ function CustomToolbar() {
 export const LeaderBoard = (props) => {
   const rows = [];
   Object.entries(props.cellData).map((data, index) => {
-    rows.push(createData(index, data[1]['Gold Medal Count'], data[1]['Region_name']));
+    rows.push(createData(index, data[1]['Name'], data[1]['Medal Count'], data[1]['Gender']));
   });
 
   return (
-    <div style={{ height: 500, width: '100%' }}>
+    <div style={{ height: 550, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
-        rowsPerPageOptions={[5]}
+        // rowsPerPageOptions={[5, 10, 20]}
         components={{
           Toolbar: CustomToolbar,
         }}

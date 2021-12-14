@@ -36,6 +36,7 @@ const Dashboard = () => {
   const [dataRatio, setDataRatio] = useState();
   const [dataEventMedal, setDataEventMedal] = useState();
   const [dataGoldMedals, setDataGoldMedals] = useState();
+  const [dataRank, setDataRank] = useState();
 
   useEffect(() => {
     handleData();
@@ -48,11 +49,13 @@ const Dashboard = () => {
         const ratio = await axios.get('http://localhost:8000/male_female');
         const table = await axios.get('http://localhost:8000/event_medal');
         const goldMedals = await axios.get('http://localhost:8000/gold_country');
+        const rank = await axios.get('http://localhost:8000/medal_top');
 
         setDataBasic(basicInfo.data);
         setDataRatio(ratio.data);
         setDataEventMedal(table.data);
         setDataGoldMedals(goldMedals.data);
+        setDataRank(rank.data);
 
       } catch (error) {
         console.error(error);
@@ -75,7 +78,7 @@ const Dashboard = () => {
           }}
         >
           {
-            dataBasic && dataRatio && dataEventMedal && dataGoldMedals ? <Container maxWidth={false}>
+            dataBasic && dataRatio && dataEventMedal && dataGoldMedals && dataRank ? <Container maxWidth={false}>
             <Grid
               container
               spacing={3}
@@ -136,22 +139,22 @@ const Dashboard = () => {
               </Grid>
               <Grid
                 item
+                // lg={4}
+                // md={6}
+                // xl={3}
+                // xs={12}
                 lg={4}
                 md={6}
-                xl={3}
+                xl={4}
                 xs={12}
-                // lg={6}
-                // md={9}
-                // xl={6}
-                // xs={12}
               >
-                <LatestProducts sx={{ height: '100%' }} />
+                <LatestProducts sx={{ height: '100%' }} data={dataRank} />
               </Grid>
               <Grid
                 item
                 lg={8}
                 md={12}
-                xl={9}
+                xl={8}
                 xs={12}
               >
                 <LatestOrders data={dataGoldMedals} />
