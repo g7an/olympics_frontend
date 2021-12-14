@@ -5,20 +5,16 @@ import {
   GridToolbarExport,
   gridClasses,
 } from '@mui/x-data-grid';
-import { useEffect, useState } from 'react';
-import { propsToClassKey } from '@mui/styles';
-import { RowingSharp } from '@material-ui/icons';
 
 const columns = [
-  // { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'name', headerName: 'Name', width: 200 },
-  { field: 'gender', headerName: 'Gender', width: 100  },
-  { field: 'medalCount', headerName: 'Gold Medals', type: 'number', width: 150 },
+  { field: 'cityName', headerName: 'City', width: 200 },
+  { field: 'count', headerName: 'Count', width: 100  },
+//   { field: 'medalCount', headerName: 'Gold Medals', type: 'number', width: 150 },
 ];
 
 
-function createData(id, name, medalCount, gender) {
-  return { id, name, medalCount, gender };
+function createData(id, cityName, count) {
+  return { id, cityName, count };
 }
 
 function CustomToolbar() {
@@ -29,10 +25,10 @@ function CustomToolbar() {
   );
 }
 
-export const LeaderBoard = (props) => {
+export const CityBoard = (props) => {
   const rows = [];
   Object.entries(props.cellData).map((data, index) => {
-    rows.push(createData(index, data[1]['Name'], data[1]['Medal Count'], data[1]['Gender']));
+    rows.push(createData(index, data[1]['City_name'], data[1]['Count']));
   });
 
   return (

@@ -74,7 +74,10 @@ export const LatestOrders = (props) => {
     <Card {...props}>
       <CardHeader title="Gold Medal By Region" />
       <PerfectScrollbar>
-        <Box sx={{ minWidth: 800 }}>
+        <Box sx={{
+            height: 500,
+            position: 'relative'
+          }}>
           {/* <LeaderBoard cellData={props.data} /> */}
            <Bar
             data={data}

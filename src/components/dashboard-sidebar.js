@@ -23,15 +23,15 @@ const items = [
     title: 'Dashboard'
   },
   {
+    href: '/products',
+    icon: (<ChartBarIcon fontSize="small" />),
+    title: 'Products'
+  },
+  {
     href: '/nlp',
     icon: (<UsersIcon fontSize="small" />),
     title: 'Q&A'
   },
-  // {
-  //   href: '/products',
-  //   icon: (<ShoppingBagIcon fontSize="small" />),
-  //   title: 'Products'
-  // },
   // {
   //   href: '/account',
   //   icon: (<UserIcon fontSize="small" />),

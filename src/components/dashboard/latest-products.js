@@ -53,39 +53,9 @@ export const LatestProducts = (props) => (
   <Card {...props}>
     <CardHeader
       subtitle={`${products.length} in total`}
-      title="Latest Products"
+      title="Athletes With Most Medals"
     />
     <Divider />
     <LeaderBoard cellData={props.data}  />
-    {/* <List>
-      {products.map((product, i) => (
-        <ListItem
-          divider={i < products.length - 1}
-          key={product.id}
-        >
-          <ListItemAvatar>
-            <img
-              alt={product.name}
-              src={product.imageUrl}
-              style={{
-                height: 48,
-                width: 48
-              }}
-            />
-          </ListItemAvatar>
-          <ListItemText
-            primary={product.name}
-            secondary={`Updated ${formatDistanceToNow(product.updatedAt)}`}
-          />
-          <IconButton
-            edge="end"
-            size="small"
-          >
-            <MoreVertIcon />
-          </IconButton>
-        </ListItem>
-      ))}
-    </List> */}
-    {/* <Divider /> */}
   </Card>
 );

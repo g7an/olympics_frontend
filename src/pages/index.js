@@ -90,7 +90,7 @@ const Dashboard = () => {
                 xl={3}
                 xs={12}
               >
-                <CountryCount countrycount={dataBasic['country_count']} />
+                <CountryCount countrycount={dataBasic['country_count']} sx={{ height: '100%' }}/>
               </Grid>
               <Grid
                 item
@@ -99,7 +99,7 @@ const Dashboard = () => {
                 sm={6}
                 xs={12}
               >
-                <AthletesCount athletecount={dataBasic['athlete_count']} />
+                <AthletesCount athletecount={dataBasic['athlete_count']} sx={{ height: '100%' }}/>
               </Grid>
               <Grid
                 item
@@ -108,7 +108,7 @@ const Dashboard = () => {
                 sm={6}
                 xs={12}
               >
-                <EventCount eventcount={dataBasic['event_count']}/>
+                <EventCount eventcount={dataBasic['event_count']} sx={{ height: '100%' }}/>
               </Grid>
               <Grid
                 item
