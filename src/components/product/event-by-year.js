@@ -2,35 +2,31 @@ import { Bar } from 'react-chartjs-2';
 import { Box, Button, Card, CardContent, CardHeader, Divider, useTheme } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { EventLinePlot } from './event-line-plot';
+import { Line } from "react-chartjs-2";
+import _ from 'lodash';
 
 export const EventPlot = (props) => {
-  const theme = useTheme();
+    const theme = useTheme();
+    const labels = Object.entries(props.data).map(obj => obj.flat()[1]['Year']);
+    const dataSummer = _.toArray(props.data).filter(o => o['Season'] === 'Summer').map(o => ({ x: o['Year'], y: o['Number of Events'] }));
+    const dataWinter = _.toArray(props.data).filter(o => o['Season'] === 'Winter').map(o => ({ x: o['Year'], y: o['Number of Events'] }));
 
   const data = {
     datasets: [
       {
-        backgroundColor: '#3F51B5',
-        barPercentage: 0.5,
-        barThickness: 12,
-        borderRadius: 4,
-        categoryPercentage: 0.5,
-        data: [18, 5, 19, 27, 29, 19, 20],
-        label: 'This year',
-        maxBarThickness: 10
+        label: "Summer Events",
+        data: dataSummer,
+        fill: true,
+        backgroundColor: "rgba(75,192,192,0.2)",
+        borderColor: "rgba(75,192,192,1)"
       },
       {
-        backgroundColor: '#EEEEEE',
-        barPercentage: 0.5,
-        barThickness: 12,
-        borderRadius: 4,
-        categoryPercentage: 0.5,
-        data: [11, 20, 12, 29, 30, 25, 13],
-        label: 'Last year',
-        maxBarThickness: 10
+        label: "Winter Events",
+        data: dataWinter,
+        fill: false,
+        borderColor: "#742774"
       }
-    ],
-    labels: ['1 Aug', '2 Aug', '3 Aug', '4 Aug', '5 Aug', '6 Aug', '7 aug']
+    ]
   };
 
   const options = {
@@ -94,7 +90,11 @@ export const EventPlot = (props) => {
             position: 'relative'
           }}
         >
-          <EventLinePlot/>
+          <div style={{ height: '100%', width: '100%' }}>
+                <Box paddingTop={5}>
+                    <Line data={data} />
+                </Box>
+            </div>
         </Box>
       <Box
         sx={{

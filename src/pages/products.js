@@ -36,7 +36,7 @@ const Products = () => {
 
   const [dataBasic, setDataBasic] = useState();
   const [dataRatio, setDataRatio] = useState();
-  const [dataEventMedal, setDataEventMedal] = useState();
+  const [dataYearlyEvent, setDataYearlyEvent] = useState();
   const [dataCities, setDataCities] = useState();
   const [dataRank, setDataRank] = useState();
 
@@ -49,13 +49,13 @@ const Products = () => {
 
         const basicInfo = await axios.get('http://localhost:8000/basic_info');
         const ratio = await axios.get('http://localhost:8000/male_female');
-        const table = await axios.get('http://localhost:8000/event_medal');
+        const yearlyEvent = await axios.get('http://localhost:8000/event_year');
         const cities = await axios.get('http://localhost:8000/partici_cities');
         const rank = await axios.get('http://localhost:8000/held_cities');
 
         setDataBasic(basicInfo.data);
         setDataRatio(ratio.data);
-        setDataEventMedal(table.data);
+        setDataYearlyEvent(yearlyEvent.data);
         setDataCities(cities.data);
         setDataRank(rank.data);
 
@@ -80,7 +80,7 @@ const Products = () => {
           }}
         >
           {
-            dataBasic && dataRatio && dataCities && dataRank ? 
+            dataBasic && dataRatio && dataCities && dataRank && dataYearlyEvent ? 
             <Container maxWidth={false}>
             <Grid
               container
@@ -129,7 +129,7 @@ const Products = () => {
                 xl={6}
                 xs={12}
               >
-                <EventPlot/>
+                <EventPlot data={dataYearlyEvent}/>
               </Grid>
               <Grid
                 item

@@ -9,7 +9,6 @@ import {
 const columns = [
   { field: 'cityName', headerName: 'City', width: 200 },
   { field: 'count', headerName: 'Count', width: 100  },
-//   { field: 'medalCount', headerName: 'Gold Medals', type: 'number', width: 150 },
 ];
 
 
