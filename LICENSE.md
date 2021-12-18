@@ -1,6 +1,7 @@
 MIT License
 
 Copyright (c) 2021 g7an
+
 Copyright (c) 2021 Devias
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
