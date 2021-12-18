@@ -25,7 +25,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 
-export const NlpToolbar = (props) => {
+export const NlpField = (props) => {
   const [formValues, setFormValues] = useState("");
   const [result, setResult] = useState({});
 
@@ -48,7 +48,6 @@ export const NlpToolbar = (props) => {
   }
 
   const controlSection = _.toArray(result).map((data, i) => {
-    console.log(data)
     if (data === "Wrong input") {
       return (
         <Typography>
@@ -75,10 +74,6 @@ export const NlpToolbar = (props) => {
           </Table>
       );
   });
-
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
 
   // const controlSection = _.toArray(result).map((data, i) => {
     // if (typeof(result) === "string") {

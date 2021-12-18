@@ -1,22 +1,18 @@
-import { Bar } from 'react-chartjs-2';
-import { Box, Button, Card, CardContent, CardHeader, Divider, useTheme } from '@mui/material';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { Box, CardHeader, useTheme, Card, Divider } from '@mui/material';
 import { Line } from "react-chartjs-2";
 import _ from 'lodash';
 
 export const EventPlot = (props) => {
     const theme = useTheme();
-    const labels = Object.entries(props.data).map(obj => obj.flat()[1]['Year']);
-    const dataSummer = _.toArray(props.data).filter(o => o['Season'] === 'Summer').map(o => ({ x: o['Year'], y: o['Number of Events'] }));
-    const dataWinter = _.toArray(props.data).filter(o => o['Season'] === 'Winter').map(o => ({ x: o['Year'], y: o['Number of Events'] }));
+    const dataSummer = _.toArray(props.data).filter(o => o['Season'] === "Summer").map(o => ({ x: o["Year"].toString(), y: o["Number of Events"] }));
+    const dataWinter = _.toArray(props.data).filter(o => o['Season'] === "Winter").map(o => ({ x: o['Year'].toString(), y: o['Number of Events'] }));
 
   const data = {
     datasets: [
       {
         label: "Summer Events",
         data: dataSummer,
-        fill: true,
+        fill: false,
         backgroundColor: "rgba(75,192,192,0.2)",
         borderColor: "rgba(75,192,192,1)"
       },
@@ -25,7 +21,7 @@ export const EventPlot = (props) => {
         data: dataWinter,
         fill: false,
         borderColor: "#742774"
-      }
+      },
     ]
   };
 
@@ -38,6 +34,7 @@ export const EventPlot = (props) => {
     responsive: true,
     xAxes: [
       {
+        type: 'year',
         ticks: {
           fontColor: theme.palette.text.secondary
         },

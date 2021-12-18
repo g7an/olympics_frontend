@@ -11,7 +11,6 @@ import { TrafficByDevice } from '../components/dashboard/traffic-by-device';
 import { DashboardLayout } from '../components/dashboard-layout';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { resetServerContext } from "react-beautiful-dnd";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';

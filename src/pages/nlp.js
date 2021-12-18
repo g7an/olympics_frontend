@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { Box, Container } from '@mui/material';
-import { NlpToolbar } from '../components/customer/nlp-toolbar';
+import { NlpField } from '../components/nlp/nlp-field';
 import { DashboardLayout } from '../components/dashboard-layout';
 
 const Nlp = () => (
@@ -18,7 +18,7 @@ const Nlp = () => (
       }}
     >
       <Container maxWidth={false}>
-        <NlpToolbar />
+        <NlpField />
         {/* <Box sx={{ mt: 3 }}>
           <CustomerListResults customers={customers} />
         </Box> */}

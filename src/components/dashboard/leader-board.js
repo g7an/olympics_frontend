@@ -36,7 +36,7 @@ export const LeaderBoard = (props) => {
   });
 
   return (
-    <div style={{ height: 500, width: '100%' }}>
+    <div style={{ height: 525, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}

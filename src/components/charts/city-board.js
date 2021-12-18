@@ -35,7 +35,6 @@ export const CityBoard = (props) => {
       <DataGrid
         rows={rows}
         columns={columns}
-        // rowsPerPageOptions={[5, 10, 20]}
         components={{
           Toolbar: CustomToolbar,
         }}
