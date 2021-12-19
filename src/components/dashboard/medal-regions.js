@@ -8,7 +8,7 @@ import { useTheme } from '@mui/material';
 import _ from 'lodash';
 
 
-export const LatestOrders = (props) => {
+export const GoldMedalByRegions = (props) => {
     const labels = Object.entries(props.data).map(obj => obj.flat()[1]['Region_name']);
     const dataNum = Object.entries(props.data).map(obj => obj.flat()[1]['Gold Medal Count']);
     const data = {
@@ -53,7 +53,7 @@ export const LatestOrders = (props) => {
 
   return (
     <Card {...props}>
-      <CardHeader title="Gold Medal By Region" />
+      <CardHeader title="Gold Medals By Region" />
         <Box>
            <Bar
             data={data}

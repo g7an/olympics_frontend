@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
-import { CountryCount } from '../components/dashboard/budget';
-import { LatestOrders } from '../components/dashboard/latest-orders';
-import { LatestProducts } from '../components/dashboard/latest-products';
-import { Sales } from '../components/dashboard/sales';
-import { EventCount } from '../components/dashboard/tasks-progress';
-import { AthletesCount } from '../components/dashboard/total-customers';
-import { GameCount } from '../components/dashboard/total-profit';
-import { TrafficByDevice } from '../components/dashboard/traffic-by-device';
+import { CountryCount } from '../components/dashboard/country-count';
+import { GoldMedalByRegions } from '../components/dashboard/medal-regions';
+import { AthleteLeaderBoard } from '../components/dashboard/athlete-board';
+import { MedalsByEvents } from '../components/dashboard/medal-events';
+import { EventCount } from '../components/dashboard/event-count';
+import { AthletesCount } from '../components/dashboard/athlete-count';
+import { GameCount } from '../components/dashboard/game-count';
+import { GenderPercentage } from '../components/dashboard/gender-percentage';
 import { DashboardLayout } from '../components/dashboard-layout';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -43,7 +43,6 @@ const Dashboard = () => {
 
   async function handleData() {
     try {      
-
         const basicInfo = await axios.get('http://localhost:8000/basic_info');
         const ratio = await axios.get('http://localhost:8000/male_female');
         const table = await axios.get('http://localhost:8000/event_medal');
@@ -125,7 +124,7 @@ const Dashboard = () => {
                 xl={6}
                 xs={12}
               >
-                <Sales data={dataEventMedal}/>
+                <MedalsByEvents data={dataEventMedal}/>
               </Grid>
               <Grid
                 item
@@ -134,20 +133,16 @@ const Dashboard = () => {
                 xl={6}
                 xs={12}
               >
-                <TrafficByDevice data={dataRatio} sx={{ height: '100%' }} />
+                <GenderPercentage data={dataRatio} sx={{ height: '100%' }} />
               </Grid>
               <Grid
                 item
-                // lg={4}
-                // md={6}
-                // xl={3}
-                // xs={12}
                 lg={4}
                 md={6}
                 xl={4}
                 xs={12}
               >
-                <LatestProducts sx={{ height: '100%' }} data={dataRank} />
+                <AthleteLeaderBoard sx={{ height: '100%' }} data={dataRank} />
               </Grid>
               <Grid
                 item
@@ -156,7 +151,7 @@ const Dashboard = () => {
                 xl={8}
                 xs={12}
               >
-                <LatestOrders data={dataGoldMedals} />
+                <GoldMedalByRegions data={dataGoldMedals} />
               </Grid>
             </Grid>
           </Container>: 

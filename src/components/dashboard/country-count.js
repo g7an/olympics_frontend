@@ -1,6 +1,4 @@
 import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
-import MoneyIcon from '@mui/icons-material/Money';
-import { propsToClassKey } from '@mui/styles';
 import PublicIcon from '@mui/icons-material/Public';
 
 export const CountryCount = (props) => (
@@ -48,22 +46,7 @@ export const CountryCount = (props) => (
           alignItems: 'center'
         }}
       >
-        {/* <ArrowDownwardIcon color="error" />
-        <Typography
-          color="error"
-          sx={{
-            mr: 1
-          }}
-          variant="body2"
-        >
-          12%
-        </Typography>
-        <Typography
-          color="textSecondary"
-          variant="caption"
-        >
-          Since last month
-        </Typography> */}
+
       </Box>
     </CardContent>
   </Card>

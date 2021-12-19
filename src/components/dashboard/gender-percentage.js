@@ -4,7 +4,7 @@ import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
 
 
-export const TrafficByDevice = (props) => {
+export const GenderPercentage = (props) => {
   const theme = useTheme();
 
   const data = {

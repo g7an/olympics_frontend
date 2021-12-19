@@ -10,8 +10,7 @@ import { propsToClassKey } from '@mui/styles';
 import { RowingSharp } from '@material-ui/icons';
 
 const columns = [
-  // { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'Event_name', headerName: 'Event Name', width: 200 },
+  { field: 'Event_name', headerName: 'Event Name', width: 300 },
   { field: 'Region_name', headerName: 'Region Name', width: 200 },
   {
     field: 'medal_count',
@@ -19,17 +18,6 @@ const columns = [
     type: 'number',
     width: 200,
   },
-  // {
-  //   field: 'fullName',
-  //   headerName: 'Full name',
-  //   description: 'This column has a value getter and is not sortable.',
-  //   sortable: false,
-  //   width: 160,
-  //   valueGetter: (params) =>
-  //     `${params.getValue(params.id, 'firstName') || ''} ${
-  //       params.getValue(params.id, 'lastName') || ''
-  //     }`,
-  // },
 ];
 
 

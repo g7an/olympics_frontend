@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 import { LeaderBoard } from './leader-board';
 
-export const LatestProducts = (props) => (
+export const AthleteLeaderBoard = (props) => (
   <Card {...props}>
     <CardHeader
       subtitle=""
