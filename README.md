@@ -7,7 +7,7 @@
 
 ## Demo
 
-[Demo video](https://drive.google.com/drive/folders/1Xo421IpvxWnE6zXmTW3LP5jmRvoDrfvN?usp=sharing)
+[Demo video](https://drive.google.com/drive/folders/1Xo421IpvxWnE6zXmTW3LP5jmRvoDrfvN)
 
 
 ## Quick start
